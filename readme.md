@@ -43,11 +43,9 @@
 ## Использованные источники
 
 - [MDN Web Docs](https://developer.mozilla.org/)
-- [Bored API](https://www.boredapi.com/)
 - [Stack Overflow](https://stackoverflow.com/)
 
 ## Дополнительные важные аспекты
 
-- Проект использует стандартные модули ECMAScript для организации кода.
 - Логика получения данных вынесена в отдельный модуль `activity.js`.
 - Обновление данных реализовано с использованием функции `setTimeout()`.
