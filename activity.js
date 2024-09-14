@@ -1,16 +1,16 @@
-// Функция для получения данных с сервера
-async function fetchData() {
+
+ // Получает случайное действие с API и возвращает его.
+
+export async function getRandomActivity() {
     try {
         const response = await fetch('https://www.boredapi.com/api/activity/');
         if (!response.ok) {
-            throw new Error('Network response was not ok');
+            throw new Error('Ошибка сети');
         }
         const data = await response.json();
-        return data;
+        return data.activity;
     } catch (error) {
-        console.error('Error fetching data:', error);
-        return null;
+        console.error('Ошибка при получении активности:', error);
+        return 'К сожалению, произошла ошибка';
     }
 }
-
-export { fetchData }; // Экспортируем функцию для возможного использования в других файлах
