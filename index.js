@@ -13,8 +13,8 @@ async function updateActivity() {
 // Запускает обновление активности каждую минуту.
  
 function startAutoUpdate() {
-    updateActivity(); // Сразу загрузить активность
-    setInterval(updateActivity, 60000); // Обновлять каждые 60 секунд
+    updateActivity(); 
+    setInterval(updateActivity, 60000); 
 }
 
 startAutoUpdate();
