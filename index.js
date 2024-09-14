@@ -1,27 +1,20 @@
-import { fetchData } from './activity.js';
 
-// Ф обновления активности на странице
-function updateActivity(activity) {
+import { getRandomActivity } from './activity.js';
+
+
+  //Обновляет текст активности на странице.
+async function updateActivity() {
     const activityElement = document.getElementById('activity');
+    activityElement.textContent = 'Загрузка...';
+    const activity = await getRandomActivity();
     activityElement.textContent = activity;
 }
 
-// Ф обновления данных каждую минуту
-async function updateDataPeriodically() {
-    try {
-        const data = await fetchData();
-        if (data) {
-            updateActivity(data.activity);
-        } else {
-            updateActivity('К сожалению, произошла ошибка');
-        }
-    } catch (error) {
-        console.error('Error updating data:', error);
-        updateActivity('К сожалению, произошла ошибка');
-    } finally {
-        setTimeout(updateDataPeriodically, 60000); // Обновление каждую минуту (60000 миллисекунд)
-    }
+// Запускает обновление активности каждую минуту.
+ 
+function startAutoUpdate() {
+    updateActivity(); // Сразу загрузить активность
+    setInterval(updateActivity, 60000); // Обновлять каждые 60 секунд
 }
 
-// Запуск обновления данных при загрузке страницы
-updateDataPeriodically();i
+startAutoUpdate();
